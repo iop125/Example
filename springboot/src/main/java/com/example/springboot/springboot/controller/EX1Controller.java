@@ -43,7 +43,7 @@ public class EX1Controller {
         return countryDTO.toString();
     }
 
-    @RequestMapping("/getObectForListObject")  //提供“路由”的信息
+    @RequestMapping("/getObectForList1Object")  //提供“路由”的信息
     public String getObectForListObject() {
         //获取配置属性对象
         return groupDTO.toString();

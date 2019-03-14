@@ -1,25 +1,6 @@
-/target/
-!.mvn/wrapper/maven-wrapper.jar
-
-### STS ###
-.apt_generated
-.classpath
-.factorypath
-.project
-.settings
-.springBeans
-.sts4-cache
-
-### IntelliJ IDEA ###
-.idea
-*.iws
 *.iml
-*.ipr
-
-### NetBeans ###
-/nbproject/private/
-/nbbuild/
-/dist/
-/nbdist/
-/.nb-gradle/
-/build/
+.*
+target/
+plugin-center-web/src/main/webapp/gift/backgroundsize.min.htc
+plugin-center-web/src/main/webapp/misc/css/gift/backgroundsize.min.htc
+plugin-center-web/src/main/webapp/misc/css/gift/compatible.css

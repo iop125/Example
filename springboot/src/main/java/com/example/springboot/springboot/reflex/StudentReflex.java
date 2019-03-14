@@ -1,6 +1,6 @@
 package com.example.springboot.springboot.reflex;
 
-import com.miaoyu.test.spring.boot.dongtaidaili.StudentAll;
+import com.example.springboot.springboot.dongtaidaili.StudentAll;
 import lombok.Data;
 
 /**

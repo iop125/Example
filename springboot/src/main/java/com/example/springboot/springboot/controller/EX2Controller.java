@@ -1,20 +1,14 @@
 package com.example.springboot.springboot.controller;
 
-import com.miaoyu.test.spring.boot.domain.ex1.CountryDTO;
-import com.miaoyu.test.spring.boot.domain.ex1.GroupDTO;
-import com.miaoyu.test.spring.boot.domain.ex1.StudentDTO;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 
 /**
  * 例子： 支持jsp
- *
+ * <p>
  * 1。解析器
- * 2。注册webapp资源目录**/
+ * 2。注册webapp资源目录
+ **/
 // * <resources>
 // * 			 <!--注册webapp目录为资源目录-->
 // * 			<resource>

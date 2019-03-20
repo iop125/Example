@@ -1,4 +1,4 @@
-package com.example.springboot.springboot.reflex;
+package com.example.javaex.javaex.reflex;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;

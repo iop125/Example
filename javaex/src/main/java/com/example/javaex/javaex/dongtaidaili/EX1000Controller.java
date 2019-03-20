@@ -1,4 +1,4 @@
-package com.example.springboot.springboot.dongtaidaili;
+package com.example.javaex.javaex.dongtaidaili;
 
 import java.lang.reflect.Proxy;
 

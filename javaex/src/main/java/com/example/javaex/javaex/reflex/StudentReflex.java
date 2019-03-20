@@ -1,6 +1,6 @@
-package com.example.springboot.springboot.reflex;
+package com.example.javaex.javaex.reflex;
 
-import com.example.springboot.springboot.dongtaidaili.StudentAll;
+import com.example.javaex.javaex.dongtaidaili.StudentAll;
 import lombok.Data;
 
 /**

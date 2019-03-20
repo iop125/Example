@@ -1,4 +1,4 @@
-package com.example.springboot.springboot;
+package com.example.springboot.springboot.common;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;

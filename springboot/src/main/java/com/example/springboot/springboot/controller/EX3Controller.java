@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
  **/
 
 @Controller     //注解含义 ：controller里面的方法都视图格式输出  stereotype annotation
-@RequestMapping("ex2Controller")
+@RequestMapping("ex3Controller")
 public class EX3Controller {
 
     @RequestMapping("/getJSP")  //提供“路由”的信息

@@ -23,11 +23,9 @@ public class MybaitsController {
         return "page/index";
     }
     @RequestMapping("/addaatest2")  //提供“路由”的信息
-    public String addAatest2() {
-        Aatest2 aatest2 = new Aatest2();
-        aatest2.setAge(1);
-        aatest2.setId(2);
-        aatest2.setName(3+"");
+    public String addAatest2(Aatest2 aatest2) {
+        System.out.println(aatest2.toString());
+
         testMybitasService.add(aatest2);
         return "page/index";
     }

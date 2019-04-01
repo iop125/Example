@@ -1,8 +1,8 @@
 package com.example.springboot.springboot.service;
 
-import com.example.springboot.springboot.domain.ex1.Aatest2;
+import com.example.springboot.springboot.domain.ex1.Test;
 
 public interface TestMybitasService {
 
-    void add(Aatest2 aatest2);
+    void add(Test aatest2);
 }

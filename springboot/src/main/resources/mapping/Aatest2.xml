@@ -6,9 +6,9 @@
         id, name,age
     </sql>
 
-    <sql id="table_name"> aatest2 </sql>
+    <sql id="table_name"> test </sql>
 
-    <insert timeout="5" id="add" parameterType="Aatest2">
+    <insert timeout="5" id="add" parameterType="test">
         INSERT INTO  <include refid="table_name"/>   (name, age)  VALUES (#{name}, #{age})
     </insert>
 </mapper>

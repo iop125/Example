@@ -3,9 +3,9 @@ package com.example.springboot.springboot.domain.ex1;
 import lombok.Data;
 
 @Data
-public class Aatest2 {
+public class Test {
 
     private String name;
     private int age;
-    private int id;
+    private Long id;
 }

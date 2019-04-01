@@ -1,6 +1,6 @@
 package com.example.springboot.springboot.controller;
 
-import com.example.springboot.springboot.domain.ex1.Aatest2;
+import com.example.springboot.springboot.domain.ex1.Test;
 import com.example.springboot.springboot.service.TestMybitasService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -23,13 +23,12 @@ public class MybaitsController {
         return "page/index";
     }
     @RequestMapping("/addaatest2")  //提供“路由”的信息
-    public String addAatest2(Aatest2 aatest2) {
-        System.out.println(aatest2.toString());
+    public String addAatest2(Test aatest2) {
+        System.out.println("--------"+aatest2.toString());
 
         testMybitasService.add(aatest2);
         return "page/index";
     }
-
 
     public static void main(String[] a) {
         System.out.println("----1--");

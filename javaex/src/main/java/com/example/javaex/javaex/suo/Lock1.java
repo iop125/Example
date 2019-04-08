@@ -136,6 +136,10 @@ import java.util.concurrent.atomic.AtomicInteger;
  * 更新类的属性必须使用public volatile进行修饰；
 
  */
+
+/**
+ * Atomic 原理看lock2
+ */
 public class Lock1 {
 
     /**

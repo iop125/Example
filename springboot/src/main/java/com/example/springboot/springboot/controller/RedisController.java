@@ -1,7 +1,8 @@
 package com.example.springboot.springboot.controller;
 
-import com.example.springboot.springboot.domain.ex1.Aatest2;
+import com.example.springboot.springboot.domain.ex1.Test;
 import com.example.springboot.springboot.service.TestMybitasService;
+import com.example.springboot.springboot.service.TestRedisService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,12 +15,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("redisController")
 public class RedisController {
 
+@Autowired
+    private TestRedisService testRedisService;
 
-
-
-    @RequestMapping("/addaatest2")  //提供“路由”的信息
+    @RequestMapping("/addTest")  //提供“路由”的信息
     public String addAatest2() {
 
+        testRedisService.add(null);
         return "page/index";
     }
 

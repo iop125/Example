@@ -17,17 +17,12 @@ public class Test1 {
         //mybatis的配置文件
 
         Aaaaaa a= new Aaaaaa();
-        a.setId(112L);
+        a.setId(1121L);
         a.setAa("11111");
         InputStream inputStream = Resources.getResourceAsStream("myBatis-config.xml");
         SqlSessionFactory factory = new SqlSessionFactoryBuilder() .build(inputStream);
         SqlSession sqlSession = factory.openSession();
-//        sqlSession.insert("AaaaaaDao.insert",a);
-        AaaaaaDao mapper = sqlSession.getMapper(AaaaaaDao.class);
-//        if(mapper == null){
-//            System.out.println("----------");
-//        }
-        mapper.insert(a);
+        sqlSession.insert("AaaaaaDao.insert",a);
         sqlSession.commit();
         sqlSession.close();
     }

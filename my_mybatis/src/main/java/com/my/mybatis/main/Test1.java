@@ -20,7 +20,7 @@ public class Test1 {
         a.setId(new Date().getTime());
         a.setAa("11111");
         InputStream inputStream = Resources.getResourceAsStream("myBatis-config.xml");
-        SqlSessionFactory factory = new SqlSessionFactoryBuilder().build(inputStream);
+        SqlSessionFactory factory = new SqlSessionFactoryBuilder().build(inputStream);//配置i 文件的信息变成对象 Configuration configuration
         SqlSession sqlSession = factory.openSession();
         sqlSession.insert("AaaaaaDao.insert", a);
         Aaaaaa a1 = new Aaaaaa();

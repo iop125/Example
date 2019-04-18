@@ -17,7 +17,7 @@
     </select>
 
 
-    <insert timeout="5" id="insert" parameterType="com.my.mybatis.entity.Aaaaaa">
+    <insert timeout="5" id="insert" parameterType="Aaaaaa">
         INSERT INTO
         aaaaaa
         (id,aa )

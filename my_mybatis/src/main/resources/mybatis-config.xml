@@ -14,8 +14,6 @@
      </settings>-->
     <typeAliases>
         <package name="com.my.mybatis.entity"></package>
-        <package name="com.my.mybatis.dao"/>
-
     </typeAliases>
     <environments default="development">
         <environment id="development">
@@ -36,5 +34,10 @@
     <mappers>
         <!-- 注册mapper xml文件   在mybatis-config.xml中用mappers节点使主配置关联到小配置-->
         <mapper resource="AaaaaaMapper.xml"/>
+
+        <!--<mapper class="com.my.mybatis.dao.AaaaaaMapper1"/>-->
+        <!--此种方式要有xml加载 在pom里面配置的-->
+        <package name="com.my.mybatis.dao"/>
+
     </mappers>
 </configuration>

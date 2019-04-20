@@ -24,8 +24,8 @@ public class Test1 {
         SqlSession sqlSession = factory.openSession();
         sqlSession.insert("AaaaaaDao.insert", a);
         Aaaaaa a1 = new Aaaaaa();
-        a.setId(new Date().getTime());
-        a.setAa("11111");
+        a1.setId(new Date().getTime());
+        a1.setAa("11111");
         AaaaaaMapper1 mapper = sqlSession.getMapper(AaaaaaMapper1.class);
         mapper.insert(a1);
         sqlSession.commit();

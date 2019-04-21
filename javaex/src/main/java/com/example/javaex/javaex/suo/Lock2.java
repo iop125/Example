@@ -37,8 +37,7 @@ public class Lock2 {
             c = unsafe.getIntVolatile(this, valueOffset);
             //获取最新的值
             System.out.println("-------"+i);
-        } while (!unsafe.compareAndSwapInt(this, valueOffset, c, c + 1))
-                ;
+        } while (!unsafe.compareAndSwapInt(this, valueOffset, c, c + 1));
         System.out.println("%%%%%%%%%%%"+i);
     }
 

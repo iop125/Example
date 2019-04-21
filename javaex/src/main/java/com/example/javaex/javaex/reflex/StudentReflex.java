@@ -1,14 +1,10 @@
 package com.example.javaex.javaex.reflex;
 
-import com.example.javaex.javaex.dongtaidaili.StudentAll;
 import lombok.Data;
 
-/**
- * 例子： 动态代理
- **/
 
 @Data
-public class StudentReflex implements StudentAll {
+public class StudentReflex extends StudentAll {
 
     //私有属性
     private String name = "Tom";

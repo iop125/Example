@@ -1,9 +1,11 @@
 package com.my.mybatis.main;
 
+import com.my.mybatis.dao.ABycoustorResultMapMapper;
 import com.my.mybatis.dao.AaaaaaBycoustorObjectFactoryMapper;
 import com.my.mybatis.dao.AaaaaaBycoustorTypeHanderMapper;
 import com.my.mybatis.dao.AaaaaaMapper1;
 import com.my.mybatis.entity.Aaaaaa;
+import com.my.mybatis.entity.AaaaaaByResultMap;
 import com.my.mybatis.entity.AaaaaaBycoustorObjectFactory;
 import com.my.mybatis.entity.AaaaaaBycoustorTypeHander;
 import org.apache.ibatis.io.Resources;
@@ -26,7 +28,8 @@ public class Test1 {
         Test1 test1 = new Test1();
 //        test1.testInsertData(sqlSession);
 //        test1.testCustomTypeHandler(sqlSession);
-        test1.testCustomObejctFactory(sqlSession);
+//        test1.testCustomObejctFactory(sqlSession);
+        test1.testResultMap(sqlSession);
         sqlSession.commit();
         sqlSession.close();
     }
@@ -76,6 +79,17 @@ public class Test1 {
     public void testCustomObejctFactory(SqlSession sqlSession) {
         AaaaaaBycoustorObjectFactoryMapper mapper = sqlSession.getMapper(AaaaaaBycoustorObjectFactoryMapper.class);
         List<AaaaaaBycoustorObjectFactory> list = mapper.getA("333333");
+        System.out.println("===" + list.toString());
+    }
+
+    /**
+     * ResultMap  返回数据封装到对象中   可以通过
+     *
+     * @param sqlSession
+     */
+    public void testResultMap(SqlSession sqlSession) {
+        ABycoustorResultMapMapper mapper = sqlSession.getMapper(ABycoustorResultMapMapper.class);
+        List<AaaaaaByResultMap> list = mapper.getA("333333");
         System.out.println("===" + list.toString());
     }
 }

@@ -49,7 +49,6 @@ public class customTypeHandlerUtil implements TypeHandler {
      */
     @Override
     public Object getResult(ResultSet rs, String columnName) throws SQLException {
-        System.out.println("33333333");
         int flag = rs.getInt(columnName);
         Boolean myFlag = false;
         if(flag ==1 ){

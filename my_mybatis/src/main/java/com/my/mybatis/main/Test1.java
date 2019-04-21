@@ -1,8 +1,10 @@
 package com.my.mybatis.main;
 
+import com.my.mybatis.dao.AaaaaaBycoustorObjectFactoryMapper;
 import com.my.mybatis.dao.AaaaaaBycoustorTypeHanderMapper;
 import com.my.mybatis.dao.AaaaaaMapper1;
 import com.my.mybatis.entity.Aaaaaa;
+import com.my.mybatis.entity.AaaaaaBycoustorObjectFactory;
 import com.my.mybatis.entity.AaaaaaBycoustorTypeHander;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
@@ -23,13 +25,15 @@ public class Test1 {
         //mybatis的配置文件
         Test1 test1 = new Test1();
 //        test1.testInsertData(sqlSession);
-        test1.testCustomTypeHandler(sqlSession);
+//        test1.testCustomTypeHandler(sqlSession);
+        test1.testCustomObejctFactory(sqlSession);
         sqlSession.commit();
         sqlSession.close();
     }
 
     /**
      * 通过类包路径和resource路径配置mapper
+     *
      * @param sqlSession
      * @throws Exception
      */
@@ -39,7 +43,6 @@ public class Test1 {
         a.setId(new Date().getTime());
         a.setAa("11111");
         sqlSession.insert("AaaaaaDao.insert", a);
-
         //类包路径
         Aaaaaa a1 = new Aaaaaa();
         a1.setId(new Date().getTime());
@@ -51,6 +54,7 @@ public class Test1 {
 
     /**
      * 自定义的类型转换   可以通过
+     *
      * @param sqlSession
      */
     public void testCustomTypeHandler(SqlSession sqlSession) {
@@ -61,6 +65,17 @@ public class Test1 {
         AaaaaaBycoustorTypeHanderMapper mapper = sqlSession.getMapper(AaaaaaBycoustorTypeHanderMapper.class);
 //        mapper.insert(a);
         List<AaaaaaBycoustorTypeHander> list = mapper.getA("333333");
-        System.out.println("==="+list.toString());
+        System.out.println("===" + list.toString());
+    }
+
+    /**
+     * 自定义的类型转换   可以通过
+     *
+     * @param sqlSession
+     */
+    public void testCustomObejctFactory(SqlSession sqlSession) {
+        AaaaaaBycoustorObjectFactoryMapper mapper = sqlSession.getMapper(AaaaaaBycoustorObjectFactoryMapper.class);
+        List<AaaaaaBycoustorObjectFactory> list = mapper.getA("333333");
+        System.out.println("===" + list.toString());
     }
 }

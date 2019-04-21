@@ -23,7 +23,7 @@ public class customTypeHandlerUtil implements TypeHandler {
      */
     @Override
     public void setParameter(PreparedStatement ps, int i, Object parameter, JdbcType jdbcType) throws SQLException {
-        System.out.println("22222222");
+        System.out.println("2");
 
         if(parameter == null){//如果没有值 那就设置一个0
             ps.setInt(i,0);

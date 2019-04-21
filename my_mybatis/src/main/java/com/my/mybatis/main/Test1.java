@@ -37,7 +37,7 @@ public class Test1 {
      * @param sqlSession
      * @throws Exception
      */
-    public void testInsertData(SqlSession sqlSession) throws Exception {
+    public void testInsertData(SqlSession sqlSession) {
         //resource
         Aaaaaa a = new Aaaaaa();
         a.setId(new Date().getTime());

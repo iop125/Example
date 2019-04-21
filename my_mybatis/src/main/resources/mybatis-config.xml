@@ -23,6 +23,9 @@
         <typeHandler handler="com.my.mybatis.util.customTypeHandlerUtil" javaType="Boolean" jdbcType="NUMERIC"/>
     </typeHandlers>
     <objectFactory type="com.my.mybatis.util.CustomObjectFactory"></objectFactory>
+    <plugins>
+        <plugin interceptor="com.my.mybatis.util.CustomPlunin"></plugin>
+    </plugins>
     <environments default="development">
         <environment id="development">
             <transactionManager type="JDBC"/>

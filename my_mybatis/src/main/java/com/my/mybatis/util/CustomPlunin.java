@@ -40,7 +40,6 @@ public class CustomPlunin implements Interceptor {
      */
     @Override
     public Object plugin(Object target) {
-        ;
         return Plugin.wrap(target, this);
     }
 

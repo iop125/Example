@@ -64,7 +64,7 @@ public class Test1 {
         AaaaaaBycoustorTypeHander a = new AaaaaaBycoustorTypeHander();
         a.setId(new Date().getTime());
         a.setAa("333333");
-        a.setFlag(true);
+//        a.setFlag(true);
         AaaaaaBycoustorTypeHanderMapper mapper = sqlSession.getMapper(AaaaaaBycoustorTypeHanderMapper.class);
 //        mapper.insert(a);
         List<AaaaaaBycoustorTypeHander> list = mapper.getA("333333");

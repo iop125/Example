@@ -14,6 +14,7 @@
      </settings>-->
     <typeAliases>
         <package name="com.my.mybatis.entity"></package>
+        <!--<typeAlias alias="Product" type="cn.itsource.domain.Product"/>-->
     </typeAliases>
 
 
@@ -28,6 +29,20 @@
     </plugins>
     <environments default="development">
         <environment id="development">
+            <transactionManager type="JDBC"/>
+            <!-- mybatis提供了3种数据源类型，分别是：POOLED,UNPOOLED,JNDI -->
+            <!-- POOLED 表示支持JDBC数据源连接池 -->
+            <!-- UNPOOLED 表示不支持数据源连接池 -->
+            <!-- JNDI 表示支持外部数据源连接池 -->
+            <!-- 配置数据库连接信息 -->
+            <dataSource type="POOLED">
+                <property name="driver" value="${jdbc.driver}"/>
+                <property name="url" value="${jdbc.url}"/>
+                <property name="username" value="${jdbc.username}"/>
+                <property name="password" value="${jdbc.password}"/>
+            </dataSource>
+        </environment>
+        <environment id="ok">
             <transactionManager type="JDBC"/>
             <!-- mybatis提供了3种数据源类型，分别是：POOLED,UNPOOLED,JNDI -->
             <!-- POOLED 表示支持JDBC数据源连接池 -->

@@ -1,10 +1,12 @@
-package com.jd.test.example.DyNamicFactory;
+package com.jd.test.example.DyNamicFactory.self;
 
 public class BeanDefined {
 
     private String beanId;
     private String classPath;
     private String scope="singleton";
+    private String factoryBean;
+    private String factoryMethod;
 
 
     public String getBeanId() {
@@ -29,5 +31,21 @@ public class BeanDefined {
 
     public void setScope(String scope) {
         this.scope = scope;
+    }
+
+    public String getFactoryBean() {
+        return factoryBean;
+    }
+
+    public void setFactoryBean(String factoryBean) {
+        this.factoryBean = factoryBean;
+    }
+
+    public String getFactoryMethod() {
+        return factoryMethod;
+    }
+
+    public void setFactoryMethod(String factoryMethod) {
+        this.factoryMethod = factoryMethod;
     }
 }

@@ -18,8 +18,10 @@
     <!--
     告诉spring容器 当前对象是由 动态工厂创建的
     -->
-    <bean id="teacher1" class="com.jd.test.domain.Teacher" factory-bean="teacherFactory" factory-method="createTeacher"/>
+    <bean id="teacher1" factory-bean="teacherFactory" factory-method="createTeacher"/>
+    <bean id="teacher2" factory-bean="teacher2Factory" factory-method="createTeacher"/>
+    <bean id="teacher3" class="com.jd.test.example.DyNamicFactory.Teacher3Fatory" factory-method="createTeacher"/>
 
-    <bean id="teacherFactory" class="com.jd.test.example.DyNamicFactory.TeacherFatory" scope="singleton">
-    </bean>
+    <bean id="teacherFactory" class="com.jd.test.example.DyNamicFactory.TeacherFatory" scope="singleton"/>
+    <bean id="teacher2Factory" class="com.jd.test.example.DyNamicFactory.Teacher2Fatory" scope="singleton"/>
 </beans>

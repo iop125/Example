@@ -1,5 +1,6 @@
-package com.jd.test.example.DyNamicFactory;
+package com.jd.test.example.DyNamicFactory.self;
 
+import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -8,7 +9,6 @@ public class BeanFatory {
 
     private List<BeanDefined> beanDefinedList;
     private Map<String, Object> springIoc;
-
 
     public BeanFatory(List<BeanDefined> beanDefinedList) throws Exception {
         this.beanDefinedList = beanDefinedList;
@@ -35,11 +35,22 @@ public class BeanFatory {
         for (BeanDefined beanObj : beanDefinedList) {
             if (beanId.equals(beanObj.getBeanId())) {
                 String scope = beanObj.getScope();
+                String factoryBean = beanObj.getFactoryBean();
+                String factoryMethod = beanObj.getFactoryMethod();
                 if ("prototype".equals(scope)) {
-                    String classPath = beanObj.getClassPath();
-                    Class classFile = Class.forName(classPath);
-                    //在默认情况下，Spring工厂是通过调用当前类默认工作方法创建实例对象
-                    instance = classFile.newInstance();
+
+                    if (factoryBean != null && factoryMethod != null) {
+                        Object factoryObject = springIoc.get(factoryBean);
+                        Class factoryClass  = factoryObject.getClass();
+                        Method m= factoryClass.getDeclaredMethod(factoryMethod,null);
+                        m.setAccessible(true);
+                        instance =m.invoke(factoryObject,null);;
+                    }else{
+                        String classPath = beanObj.getClassPath();
+                        Class classFile = Class.forName(classPath);
+                        //在默认情况下，Spring工厂是通过调用当前类默认工作方法创建实例对象
+                        instance = classFile.newInstance();
+                    }
                 } else if ("singleton".equals(scope)) {
                     return springIoc.get(beanObj.getBeanId());
                 } else {

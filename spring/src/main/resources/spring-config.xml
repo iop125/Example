@@ -13,7 +13,7 @@
     调用的时候只会返回同一个对象
     scope="prototype" 不会再spring启动的时创建，在调用的时候返回一个新的实例
         -->
-    <bean id="teacher" class="com.jd.test.domain.Teacher"  scope="singleton"/>
+    <bean id="teacher" class="com.jd.test.domain.Teacher" scope="singleton"/>
 
     <!--
     告诉spring容器 当前对象是由 动态工厂创建的
@@ -26,15 +26,32 @@
     <!--<bean id="teacher2Factory" class="com.jd.test.example.DyNamicFactory.Teacher2Fatory" scope="singleton"/>-->
 
     <!--注册bean ：被监控实现类-->
-    <bean id="isomeService" class="com.jd.test.example.BeanPostProcessor.ISomeService" />
+    <bean id="isomeService" class="com.jd.test.example.BeanPostProcessor.ISomeService"/>
     <!--注册代理类-->
-    <bean  class="com.jd.test.example.BeanPostProcessor.MyBeanPostProcessor" />
+    <bean class="com.jd.test.example.BeanPostProcessor.MyBeanPostProcessor"/>
 
     <!--    DI   -->
-    <bean id="lession" class="com.jd.test.example.beanDI.Lession" >
+    <bean id="lession" class="com.jd.test.example.beanDI.Lession">
         <property name="lessionName" value="三年"/>
         <property name="timeArray" value="星期一,星期二"/>
         <property name="school" value="北大,清华,工大"/>
+    </bean>
+    <!--   AOP  -->
+    <!-- 注册被监控实现类-->
+    <bean id="persion" class="com.jd.test.example.Aop_Advice.IPersonService">
+
+    </bean>
+    <!-- 注册通知的实现类-->
+    <bean id="before" class="com.jd.test.example.Aop_Advice.BeforeAdvice"/>
+    <!-- 注册代理监控对象生产-->
+    <bean id="persionProxy" class="org.springframework.aop.framework.ProxyFactoryBean">
+        <property name="target" ref="persion"></property>
+        <property name="interceptorNames">
+            <array>
+                <value>before</value>
+            </array>
+        </property>
+
     </bean>
 
 

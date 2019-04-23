@@ -18,10 +18,16 @@
     <!--
     告诉spring容器 当前对象是由 动态工厂创建的
     -->
-    <bean id="teacher1" factory-bean="teacherFactory" factory-method="createTeacher"/>
-    <bean id="teacher2" factory-bean="teacher2Factory" factory-method="createTeacher"/>
-    <bean id="teacher3" class="com.jd.test.example.DyNamicFactory.Teacher3Fatory" factory-method="createTeacher"/>
+    <!--<bean id="teacher1" factory-bean="teacherFactory" factory-method="createTeacher"/>-->
+    <!--<bean id="teacher2" factory-bean="teacher2Factory" factory-method="createTeacher"/>-->
+    <!--<bean id="teacher3" class="com.jd.test.example.DyNamicFactory.Teacher3Fatory" factory-method="createTeacher"/>-->
 
-    <bean id="teacherFactory" class="com.jd.test.example.DyNamicFactory.TeacherFatory" scope="singleton"/>
-    <bean id="teacher2Factory" class="com.jd.test.example.DyNamicFactory.Teacher2Fatory" scope="singleton"/>
+    <!--<bean id="teacherFactory" class="com.jd.test.example.DyNamicFactory.TeacherFatory" scope="singleton"/>-->
+    <!--<bean id="teacher2Factory" class="com.jd.test.example.DyNamicFactory.Teacher2Fatory" scope="singleton"/>-->
+
+    <!--注册bean ：被监控实现类-->
+    <bean id="isomeService" class="com.jd.test.example.BeanPostProcessor.ISomeService" />
+    <!--注册代理类-->
+    <bean  class="com.jd.test.example.BeanPostProcessor.MyBeanPostProcessor" />
+
 </beans>

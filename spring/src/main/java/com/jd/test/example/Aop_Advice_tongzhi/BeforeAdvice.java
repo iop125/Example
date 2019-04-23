@@ -1,4 +1,4 @@
-package com.jd.test.example.Aop_Advice;
+package com.jd.test.example.Aop_Advice_tongzhi;
 
 import org.springframework.aop.MethodBeforeAdvice;
 

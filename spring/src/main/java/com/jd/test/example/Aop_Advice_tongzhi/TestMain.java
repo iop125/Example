@@ -1,4 +1,4 @@
-package com.jd.test.example.Aop_Advice;
+package com.jd.test.example.Aop_Advice_tongzhi;
 
 import com.jd.test.example.BeanPostProcessor.SomeService;
 import com.jd.test.example.BeanPostProcessor.self.BeanDefined;

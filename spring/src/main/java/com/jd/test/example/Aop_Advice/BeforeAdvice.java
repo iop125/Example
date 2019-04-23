@@ -1,8 +1,6 @@
 package com.jd.test.example.Aop_Advice;
 
 import org.springframework.aop.MethodBeforeAdvice;
-import org.springframework.aop.framework.ProxyFactory;
-import org.springframework.aop.framework.ProxyFactoryBean;
 
 import java.lang.reflect.Method;
 

@@ -2,5 +2,24 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean id="student" class="com.jd.test.domain.Student">
+        <property name="age" value="14"/>
+        <property name="sname" value="wo"/>
+        <property name="teacher" ref="teacher"/>
+    </bean>
 
+    <!--
+    scope="singleton" Spring在启动时 被创建保存在spring框架singletonList中
+    调用的时候只会返回同一个对象
+    scope="prototype" 不会再spring启动的时创建，在调用的时候返回一个新的实例
+        -->
+    <bean id="teacher" class="com.jd.test.domain.Teacher"  scope="singleton"/>
+
+    <!--
+    告诉spring容器 当前对象是由 动态工厂创建的
+    -->
+    <bean id="teacher1" class="com.jd.test.domain.Teacher" factory-bean="teacherFactory" factory-method="createTeacher"/>
+
+    <bean id="teacherFactory" class="com.jd.test.example.DyNamicFactory.TeacherFatory" scope="singleton">
+    </bean>
 </beans>

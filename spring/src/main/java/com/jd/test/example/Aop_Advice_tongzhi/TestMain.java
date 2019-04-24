@@ -29,27 +29,5 @@ public class TestMain {
         persionProxy.eat();
 
     }
-    public void doBeanPostProcessorSelf() throws Exception {
-        BeanDefined beanDefined = new BeanDefined();
-        beanDefined.setBeanId("iSomeServiceSelf");
-        beanDefined.setClassPath("com.jd.test.example.BeanPostProcessor.self.ISomeServiceSelf");
-        beanDefined.setScope("singleton");
-
-        BeanDefined beanDefinedBeanPostProcessor= new BeanDefined();
-        beanDefinedBeanPostProcessor.setBeanId("myBeanPostProcessorSelf");
-        beanDefinedBeanPostProcessor.setClassPath("com.jd.test.example.BeanPostProcessor.self.MyBeanPostProcessorSelf");
-        beanDefinedBeanPostProcessor.setScope("singleton");
-
-        List beanList = new ArrayList<>();
-        beanList.add(beanDefined);
-        beanList.add(beanDefinedBeanPostProcessor);
-        //2.声明一个spring提供的beanFactory
-        BeanFatory beanFactory = new BeanFatory(beanList);
-        beanFactory.setBeanDefinedList(beanList);
-
-        //3。向beanFactory要object
-        SomeService isomeService = (SomeService) beanFactory.getBean("iSomeServiceSelf");
-        System.out.println(isomeService.doSome());
-    }
 
 }

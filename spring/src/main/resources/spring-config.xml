@@ -36,23 +36,64 @@
         <property name="timeArray" value="星期一,星期二"/>
         <property name="school" value="北大,清华,工大"/>
     </bean>
-    <!--   AOP  -->
+    <!--   AOP-通知  -->
     <!-- 注册被监控实现类-->
-    <bean id="persion" class="com.jd.test.example.Aop_Advice.IPersonService">
+    <bean id="persion" class="com.jd.test.example.Aop_Advice_tongzhi.IPersonService">
 
     </bean>
     <!-- 注册通知的实现类-->
-    <bean id="before" class="com.jd.test.example.Aop_Advice.BeforeAdvice"/>
+    <!-- 前置通知实现类-->
+    <bean id="before" class="com.jd.test.example.Aop_Advice_tongzhi.BeforeAdvice"/>
+    <!-- 后置通知实现类-->
+    <bean id="afterAdvice" class="com.jd.test.example.Aop_Advice_tongzhi.MyAfterAdvice"/>
+    <!-- 返回通知实现类-->
+    <bean id="afterReturning" class="com.jd.test.example.Aop_Advice_tongzhi.MyAfterReturningAdvice"/>
+    <!-- 环绕通知实现类-->
+    <bean id="methodInterceptor" class="com.jd.test.example.Aop_Advice_tongzhi.MyMethodInterceptor"/>
+    <!-- 异常通知实现类-->
+    <bean id="afterThrowingAdvice" class="com.jd.test.example.Aop_Advice_tongzhi.MyAfterThrowingAdvice"/>
     <!-- 注册代理监控对象生产-->
     <bean id="persionProxy" class="org.springframework.aop.framework.ProxyFactoryBean">
         <property name="target" ref="persion"></property>
         <property name="interceptorNames">
             <array>
+                <value>methodInterceptor</value>
                 <value>before</value>
+                <!--<value>afterAdvice</value>-->
+                <value>afterReturning</value>
+                <value>afterThrowingAdvice</value>
             </array>
         </property>
-
     </bean>
 
+    <!--   AOP-顾问配置  -->
+    <!--监控对象-->
+    <bean id="dogService" class="com.jd.test.example.Aop_Advice_guwen.DogService"/>
+    <!-- 类型过滤器-->
+    <bean id="classFilter" class="com.jd.test.example.Aop_Advice_guwen.MyClassFilter"/>
+    <!-- 方法过滤器-->
+    <bean id="methodMatcher" class="com.jd.test.example.Aop_Advice_guwen.MyMethodMatcher"/>
+
+    <!-- 切入点-->
+    <bean id="pointCut" class="com.jd.test.example.Aop_Advice_guwen.MyPointCut">
+        <property name="classFilter" ref="classFilter"/>
+        <property name="methodMatcher" ref="methodMatcher"/>
+    </bean>
+    <!-- 注册通知的实现类-->
+    <bean id="beforeAdvice" class="com.jd.test.example.Aop_Advice_guwen.BeforeAdvice"/>
+    <!-- 注册顾问-->
+    <bean id="myPointCutAdvisor" class="com.jd.test.example.Aop_Advice_guwen.MyPointCutAdvisor">
+        <property name="advice" ref="beforeAdvice"/>
+        <property name="pointCut" ref="pointCut"/>
+    </bean>
+    <!-- 注册代理监控对象生产-->
+    <bean id="dogProxy" class="org.springframework.aop.framework.ProxyFactoryBean">
+        <property name="target" ref="dogService"></property>
+        <property name="interceptorNames">
+            <array>
+                <value>myPointCutAdvisor</value>
+            </array>
+        </property>
+    </bean>
 
 </beans>

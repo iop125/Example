@@ -11,6 +11,6 @@ public class BeforeAdvice implements MethodBeforeAdvice {
      *
      */
     public void before(Method method, Object[] objects, Object o) throws Throwable {
-        System.out.println("切面次要业务------xishou ---------");
+        System.out.println("切面次要业务前置------xishou ---------");
     }
 }

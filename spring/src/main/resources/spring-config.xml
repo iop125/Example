@@ -38,9 +38,7 @@
     </bean>
     <!--   AOP-通知  -->
     <!-- 注册被监控实现类-->
-    <bean id="persion" class="com.jd.test.example.Aop_Advice_tongzhi.IPersonService">
-
-    </bean>
+    <bean id="persion" class="com.jd.test.example.Aop_Advice_tongzhi.IPersonService"/>
     <!-- 注册通知的实现类-->
     <!-- 前置通知实现类-->
     <bean id="before" class="com.jd.test.example.Aop_Advice_tongzhi.BeforeAdvice"/>
@@ -73,7 +71,6 @@
     <bean id="classFilter" class="com.jd.test.example.Aop_Advice_guwen.MyClassFilter"/>
     <!-- 方法过滤器-->
     <bean id="methodMatcher" class="com.jd.test.example.Aop_Advice_guwen.MyMethodMatcher"/>
-
     <!-- 切入点-->
     <bean id="pointCut" class="com.jd.test.example.Aop_Advice_guwen.MyPointCut">
         <property name="classFilter" ref="classFilter"/>

@@ -23,7 +23,7 @@ public class TestMain {
         ApplicationContext factory = new ClassPathXmlApplicationContext("spring-config.xml");
         PersionService persionProxy = (PersionService) factory.getBean("persionProxy");
         persionProxy.eat();
-//        persionProxy.wc();
+        persionProxy.wc();
 
     }
 

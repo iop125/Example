@@ -2,18 +2,18 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
-    <bean id="student" class="com.jd.test.domain.Student">
-        <property name="age" value="14"/>
-        <property name="sname" value="wo"/>
-        <property name="teacher" ref="teacher"/>
-    </bean>
+    <!--<bean id="student" class="com.jd.test.domain.Student">-->
+        <!--<property name="age" value="14"/>-->
+        <!--<property name="sname" value="wo"/>-->
+        <!--<property name="teacher" ref="teacher"/>-->
+    <!--</bean>-->
 
     <!--
     scope="singleton" Spring在启动时 被创建保存在spring框架singletonList中
     调用的时候只会返回同一个对象
     scope="prototype" 不会再spring启动的时创建，在调用的时候返回一个新的实例
         -->
-    <bean id="teacher" class="com.jd.test.domain.Teacher" scope="singleton"/>
+    <!--<bean id="teacher" class="com.jd.test.domain.Teacher" scope="singleton"/>-->
 
     <!--
     告诉spring容器 当前对象是由 动态工厂创建的
@@ -26,16 +26,16 @@
     <!--<bean id="teacher2Factory" class="com.jd.test.example.DyNamicFactory.Teacher2Fatory" scope="singleton"/>-->
 
     <!--注册bean ：被监控实现类-->
-    <bean id="isomeService" class="com.jd.test.example.BeanPostProcessor.ISomeService"/>
-    <!--注册代理类-->
-    <bean class="com.jd.test.example.BeanPostProcessor.MyBeanPostProcessor"/>
+    <!--<bean id="isomeService" class="com.jd.test.example.BeanPostProcessor.ISomeService"/>-->
+    <!--&lt;!&ndash;注册代理类&ndash;&gt;-->
+    <!--<bean class="com.jd.test.example.BeanPostProcessor.MyBeanPostProcessor"/>-->
 
-    <!--    DI   -->
-    <bean id="lession" class="com.jd.test.example.beanDI.Lession">
-        <property name="lessionName" value="三年"/>
-        <property name="timeArray" value="星期一,星期二"/>
-        <property name="school" value="北大,清华,工大"/>
-    </bean>
+    <!--&lt;!&ndash;    DI   &ndash;&gt;-->
+    <!--<bean id="lession" class="com.jd.test.example.beanDI.Lession">-->
+        <!--<property name="lessionName" value="三年"/>-->
+        <!--<property name="timeArray" value="星期一,星期二"/>-->
+        <!--<property name="school" value="北大,清华,工大"/>-->
+    <!--</bean>-->
     <!--   AOP-通知  -->
     <!-- 注册被监控实现类-->
     <bean id="persion" class="com.jd.test.example.Aop_Advice_tongzhi.IPersonService"/>

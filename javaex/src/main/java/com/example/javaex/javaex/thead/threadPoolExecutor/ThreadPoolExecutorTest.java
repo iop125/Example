@@ -45,4 +45,12 @@ public class ThreadPoolExecutorTest {
     public static ScheduledExecutorService newScheduledThreadPool(int corePoolSize) {
         return new ScheduledThreadPoolExecutor(corePoolSize);
     }
+
+
+    public static ExecutorService  getThreadPoolExecutor(){
+        RejectedExecutionHandler handler = new ThreadPoolExecutor.AbortPolicy();
+        return new ThreadPoolExecutor(1,1,100,
+                TimeUnit.SECONDS,linkedBlockingQueue,null,handler
+        );
+    }
 }

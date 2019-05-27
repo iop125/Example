@@ -15,7 +15,7 @@ public class HuffmanCodeForString {
         byte[] b = huffmanCode(bytes);
         System.out.println(bytes.length);
         System.out.println(b.length);
-        System.out.println( getOld(huffmanCode, b).equalsIgnoreCase(msg));
+        System.out.println( new String(getOld(huffmanCode, b)).equalsIgnoreCase(msg));
     }
 
     public static byte[] huffmanCode(byte[] array) {
@@ -138,7 +138,7 @@ public class HuffmanCodeForString {
      * @param array
      * @return
      */
-    public static String getOld(Map<Byte, String> mapCode, byte[] array) {
+    public static  byte[] getOld(Map<Byte, String> mapCode, byte[] array) {
         StringBuffer sb = new StringBuffer();
         List<Byte> list = new ArrayList<>();
         //变成原来的二进制字符串
@@ -172,7 +172,7 @@ public class HuffmanCodeForString {
         for(int i =0;i<list.size();i++){
             returnByte[i] = list.get(i);
         }
-        return new String(returnByte);
+        return returnByte;
 
     }
 

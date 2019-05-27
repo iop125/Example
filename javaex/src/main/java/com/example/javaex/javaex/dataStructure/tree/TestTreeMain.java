@@ -2,6 +2,8 @@ package com.example.javaex.javaex.dataStructure.tree;
 
 import com.example.javaex.javaex.dataStructure.tree.cluedBinaryTree.CluedBinaryNode;
 import com.example.javaex.javaex.dataStructure.tree.cluedBinaryTree.CluedBinaryTree;
+import com.example.javaex.javaex.dataStructure.tree.huffmanTree.HufffmanNode;
+import com.example.javaex.javaex.dataStructure.tree.huffmanTree.HuffmanTree;
 
 public class TestTreeMain {
 
@@ -34,8 +36,18 @@ public class TestTreeMain {
 //        System.out.println(c.rightNode.value);
         cluedBinaryTree.threadIterate();
     }
+    public static void testHuffmanTree() {
+       int array[] = new int[]{3,7,8,29,5,11,23,14};
+        HufffmanNode huffmanNode = HuffmanTree.init(array);
+        System.out.println(huffmanNode.value);
+        HuffmanTree HuffmanTree = new HuffmanTree();
+        HuffmanTree.hufffmanNode = huffmanNode;
+    }
+
+
 
     public static void main(String[] a) {
-        TestTreeMain.testCluedBinaryTree();
+//        TestTreeMain.testCluedBinaryTree();
+        TestTreeMain.testHuffmanTree();
     }
 }

@@ -1,7 +1,6 @@
 package com.example.javaex.javaex.dataStructure.tree.huffmanTree;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
@@ -48,7 +47,7 @@ public class HuffmanTree {
             HufffmanNode rootR = nodes.get(nodes.size() - 2);
             //创建一个新的二叉树
             HufffmanNode p = new HufffmanNode(rootL.value + rootR.value);
-            p.leftNode =rootL;
+            p.leftNode = rootL;
             p.rightNode = rootR;
             //把取出来的二叉树移除
             nodes.remove(rootL);
@@ -59,7 +58,8 @@ public class HuffmanTree {
         return nodes.get(0);
     }
 
-    public int[] huffmanCode(int[] array){
+    public int[] huffmanCode(int[] array) {
         return null;
     }
+
 }

@@ -27,13 +27,15 @@ public class TestTreeMain {
         cb3.rightNode= cb6;
         return cluedBinaryTree;
     }
-
-
-    public static void main(String[] a) {
+    public static void testCluedBinaryTree() {
         CluedBinaryTree cluedBinaryTree = makeTree();
         cluedBinaryTree.threadNodes();
         CluedBinaryNode c= cluedBinaryTree.getRootForValue(5);
-        System.out.println(c.rightNode.value);
+//        System.out.println(c.rightNode.value);
+        cluedBinaryTree.threadIterate();
+    }
 
+    public static void main(String[] a) {
+        TestTreeMain.testCluedBinaryTree();
     }
 }

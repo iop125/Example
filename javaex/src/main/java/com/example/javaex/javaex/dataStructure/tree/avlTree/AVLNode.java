@@ -5,6 +5,7 @@ public class AVLNode {
     public AVLNode leftNode;
     public AVLNode rightNode;
     public int value;
+    public static AVLNode p;
 
     public AVLNode(AVLNode leftNode, AVLNode rightNode, int value) {
         this.leftNode = leftNode;
@@ -15,95 +16,128 @@ public class AVLNode {
     public AVLNode() {
     }
 
-    static AVLNode addNode(int[] array) {
-        AVLNode avlNOD = null;
-        for (int value : array) {
-            avlNOD = addNode(avlNOD, value);
-        }
-        return avlNOD;
-    }
 
-    static AVLNode addNode(AVLNode node, int value) {
+    public void addNode(AVLNode node) {
         if (node == null) {
-            node = new AVLNode(null, null, value);
-            return node;
+            return;
         }
-        //放在右子节点
-        if (node.value < value) {
-            if (node.rightNode == null) {
-                node.rightNode = new AVLNode(null, null, value);
+        if (node.value < this.value) {
+            if (this.leftNode == null) {
+                this.leftNode = node;
             } else {
-                addNode(node.rightNode, value);
+                this.leftNode.addNode(node);
             }
         } else {
-            if (node.leftNode == null) {
-                node.leftNode = new AVLNode(null, null, value);
+            if (this.rightNode == null) {
+                this.rightNode = node;
             } else {
-                addNode(node.leftNode, value);
+                this.rightNode.addNode(node);
             }
         }
-        //判断是否是一个平衡二叉树
-        if (hight(node.leftNode) - hight(node.rightNode) >= 2) {
-            //进行y右旋转
-            node = rightRotation(node);
-        } else {
-            //进行左旋转
-
+        //判断是否是平衡二叉树
+        if (lefeHeight() - rightHeight() >= 2) {
+            if(leftNode!= null&&leftNode.lefeHeight()<leftNode.rightHeight()){
+                leftNode.leftRotation();
+            }
+            //右旋转
+            this.rightRotation();
+        } else if (lefeHeight() - rightHeight() <= -2) {
+            if(rightNode!= null&&rightNode.lefeHeight()>rightNode.rightHeight()){
+                rightNode.rightRotation();
+            }
+            this.leftRotation();
         }
-
-        return node;
     }
+
+    /**
+     * 右旋转
+     *
+     * @return
+     */
+    public void rightRotation() {
+        //创建一个新节点 值为当前节点
+        AVLNode temporaryNode = new AVLNode(null, null, value);
+        //
+        //将当前节点的右子树 赋值给新节点右子树
+        if (rightNode != null) {
+            temporaryNode.rightNode = rightNode;
+        }
+        //把新节点的左子树设置为当前节点的左子树的右子树
+        temporaryNode.leftNode = leftNode.rightNode;
+        //当前节点的值替换为左节点的值
+        value = leftNode.value;
+        //把当前节点的左子树设置成左子树的左子树
+        leftNode = leftNode.leftNode;
+        //当前右子树 赋值为 新节点
+        rightNode = temporaryNode;
+
+    }
+
+    /**
+     * 左旋转
+     *
+     * @return
+     */
+    void leftRotation() {
+        //创建一个新的节点 值是当前节点的值
+        AVLNode temporaryNode = new AVLNode(null, null, value);
+        //将当前节点的左子树赋值给新节点
+        temporaryNode.leftNode = leftNode;
+        //把新节点的柚子树设置为当前节点的右节点的左子树
+        temporaryNode.rightNode = rightNode.leftNode;
+        //当前节点的替换为右节点的值
+        value = rightNode.value;
+        //把当前节点的右子树设置成右子树的左子树
+        rightNode = rightNode.rightNode;
+        //当前左子树 赋值为 新节点
+        leftNode = temporaryNode;
+
+
+    }
+
+    int lefeHeight() {
+        if (leftNode == null) {
+            return 0;
+        }
+        return leftNode.hight();
+    }
+
+    int rightHeight() {
+        if (rightNode == null) {
+            return 0;
+        }
+        return rightNode.hight();
+    }
+
 
     //当前节点的高度
-    static int hight(AVLNode node) {
+    public int hight(AVLNode node) {
         if (node == null) {
             return 0;
         }
         return Math.max(node.leftNode == null ? 0 : hight(node.leftNode), node.rightNode == null ? 0 : hight(node.rightNode)) + 1;
     }
 
+    //当前节点的高度
+    public int hight() {
 
-    static void leftRotation(AVLNode node) {
-
+        return hight(this);
     }
 
-    static AVLNode rightRotation(AVLNode node) {
-        //将当前节点复制一个
-        AVLNode temporaryNode = new AVLNode(null, null, node.value);
-        //将当前节点的右节点
-        if (node.rightNode != null) {
-            temporaryNode.rightNode = node.rightNode;
-        }
-        //将其左子节点的右节点赋值给新树的左子节点
-        if (node.leftNode != null && node.leftNode.rightNode != null) {
-            temporaryNode.leftNode = node.leftNode.rightNode;
-        }
-
-        if (node.leftNode != null) {
-            node = node.leftNode;
-            node.rightNode = temporaryNode;
-        }
-
-        return node;
-    }
 
     void printlnTree() {
-        printlnTree(this);
-    }
-
-    void printlnTree(AVLNode node) {
-        if (node == null) {
+        if (this == null) {
             return;
         }
         //左
-        if (node.leftNode != null) {
-            printlnTree(node.leftNode);
+        if (this.leftNode != null) {
+            this.leftNode.printlnTree();
         }
         //中
-        System.out.println("----" + node.value);
+        System.out.println("----" + this.value);
         //右
-        if (node.rightNode != null) {
-            printlnTree(node.rightNode);
+        if (this.rightNode != null) {
+            this.rightNode.printlnTree();
         }
     }
 
@@ -166,7 +200,6 @@ public class AVLNode {
         return nodeRetrun;
     }
 
-    AVLNode p = null;
 
     AVLNode searchP(AVLNode node, int value) {
         if (node == null) {
@@ -210,14 +243,5 @@ public class AVLNode {
             return 2;
         }
         return 0;
-    }
-
-    public static void main(String[] a) {
-        int[] array = new int[]{8, 6, 9, 4, 7, 3};
-        AVLNode binarySerchTree = AVLNode.addNode(array);
-//        binarySerchTree.printlnTree();
-//        binarySerchTree.del(5);
-        binarySerchTree.printlnTree();
-        System.out.println(AVLNode.hight(binarySerchTree.leftNode) - AVLNode.hight(binarySerchTree.rightNode));
     }
 }

@@ -24,8 +24,6 @@ public class BTreeNode {
      * @param m           该树的阶
      */
     public void add(Integer information, int m) {
-
-
         if (ptrs == null || ptrs.size() == 0) {
             this.addValue(new BTreeNode(information), m);
             return;
@@ -53,7 +51,14 @@ public class BTreeNode {
         }
     }
 
-    public int searchWeiZhi(List<Integer> informations, Integer information) {
+    /**
+     * 查找关键字对应在关键字集合中的位置 （一个小于等于的位置）
+     *
+     * @param informations
+     * @param information
+     * @return
+     */
+    private int searchWeiZhi(List<Integer> informations, Integer information) {
         int weizhi = -1;
         for (int i = 0; i < informations.size(); i++) {
             Integer value = informations.get(i);
@@ -65,7 +70,7 @@ public class BTreeNode {
         return weizhi;
     }
 
-    public void addValue(BTreeNode addNode, int m) {
+    private void addValue(BTreeNode addNode, int m) {
         //在已经找到的大节点中 添加该元素（根节点或者叶子节点）
         this.informations.add(addNode.informations.get(0));
         //对队列排序
@@ -126,17 +131,34 @@ public class BTreeNode {
                 //newBTreeNodemin
                 newBTreeNodemin.ptrs = this.ptrs.subList(0, zhong);
                 //newBTreeNodeMax
-                newBTreeNodeMax.ptrs = this.ptrs.subList(zhong , this.ptrs.size());
+                newBTreeNodeMax.ptrs = this.ptrs.subList(zhong, this.ptrs.size());
             }
             if (this.parent != null) {
                 this.parent.addValue(newBTreeNode, m);
             } else {
-                this.ptrs=newBTreeNode.ptrs;
+                this.ptrs = newBTreeNode.ptrs;
                 this.informations = newBTreeNode.informations;
             }
         }
     }
 
+
+    /**
+     * @param information 要添加的数据
+     */
+    public BTreeNode searchNode(Integer information) {
+
+        //若不是叶子节点找到可以添加该关键字的节点添加
+        int weizhi = searchWeiZhi(informations, information);
+        if (weizhi != -1) {
+            if(information.equals( informations.get(weizhi))){
+                return this;
+            }
+            return ptrs.get(weizhi).searchNode(information);
+        } else {
+            return  ptrs.get(ptrs.size() - 1).searchNode(information);
+        }
+    }
 
     @Override
     public String toString() {

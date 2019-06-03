@@ -17,13 +17,6 @@ public class HeapSorting {
         for (int i = start-1; i >= 0; i--) {
             maxHeap(array, array.length, i);
         }
-        //交换在把前面的数组在进行大小堆
-//        for (int i = length-1; i >= 0; i--) {
-//            int temp = array[0];
-//            array[0] = array[i];
-//            array[i] = temp;
-//            maxHeap(array, i, 0);
-//        }[182, 88, 74, 10, 79, 5, 9, 3, 2, 8, 8]
     }
 
     /**

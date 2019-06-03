@@ -160,6 +160,10 @@ public class BTreeNode {
         }
     }
 
+    public void del(){
+
+    }
+
     @Override
     public String toString() {
         return "BTreeNode{" +

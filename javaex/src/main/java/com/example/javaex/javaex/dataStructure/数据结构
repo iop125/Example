@@ -239,4 +239,6 @@ K为值
 
    广度优先  Tu#bfs
 
+栈  MyStack# pop#  peek# push# iseEmpty
+    先进后出
 

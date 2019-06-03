@@ -242,4 +242,4 @@ K为值
 
 队列  MyQueue # poll  add get
      先近先出
-链表
+链表  Node

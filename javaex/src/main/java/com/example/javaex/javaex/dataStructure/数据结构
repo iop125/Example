@@ -235,10 +235,11 @@ K为值
     ④ 在图结构中，一个顶点可以和其它多个顶点相连，当这样的顶点访问过后，存在如何选取下一个要访问的顶点的问题。
 
    深度优先  Tu#dfs
-
-
    广度优先  Tu#bfs
 
 栈  MyStack# pop#  peek# push# iseEmpty
     先进后出
+
+队列  MyQueue # poll  add get
+     先近先出
 

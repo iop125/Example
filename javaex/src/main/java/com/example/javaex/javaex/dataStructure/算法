@@ -33,8 +33,18 @@
     平均时间复杂度和最坏时间复杂度
 空间复杂度
 
-
-
-
 T(n)
-一个算法中语句执行的次数称为语句频度 记为T(n)
+    一个算法中语句执行的次数称为语句频度 记为T(n)
+
+排序
+  交换排序  ExchangeSort
+      冒泡排序   maopao
+      快速排序   quick
+  插入排序  InsertSort
+      直接插入排序  directInsertion 若后面有一个比较小的数字那么排序会慢
+      希尔排序  shell
+  选择排序  ChoiceSort
+      简单选择排序  simpleSelectionSorting
+      堆排序
+  归并排序   MergeSort
+  基数排序  JishuSort

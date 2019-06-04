@@ -63,12 +63,12 @@ public class InsertSort {
                 k++;
             }
         }
-        return directInsertion(a);
+        return a;
     }
 
     public static void main(String s[]) {
-        int[] a = new int[]{6, 5, 1, 787, 554, 64, 6, 456, 45, 64, 63, 4, 2, 34,666666,445,6,34,234,52,65,745,6,24,52,53,6,26,3,634,63,6,34,63,63,56,3,63,6,3,2,5,24,52,52,45,2,52,525,24,5,5245,245,245,0};
-        System.out.println(Arrays.toString(InsertSort.directInsertion(a)));
+        int[] a = new int[]{6, 5, 1, 787, 55,0};
+//        System.out.println(Arrays.toString(InsertSort.directInsertion(a)));
         System.out.println(Arrays.toString(InsertSort.shell(a)));
     }
 }

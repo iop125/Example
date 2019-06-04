@@ -49,4 +49,33 @@ public class MergeSort {
         MergeSort.mergeSort(a1, 0, a1.length - 1);
         System.out.println(Arrays.toString(a1));
     }
+
+
+    public int getDuplicate(int[] arr) {
+        if (arr == null || arr.length <= 0) {
+            System.out.println("数组输入无效！");
+            return -1;
+        }
+        for (int a : arr) {
+            if (a < 0 || a > arr.length - 1) {
+                System.out.println("数字大小超出范围！");
+                return -1;
+            }
+        }
+        for (int i = 0; i < arr.length; i++) {
+            int temp;
+            while (arr[i] != i) {
+                if (arr[arr[i]] == arr[i])
+                    return arr[i];
+                // 交换arr[arr[i]]和arr[i]
+                temp = arr[i];
+                arr[i] = arr[temp];
+                arr[temp] = temp;
+            }
+            int[] a1 = new int[]{22, 5, 1, 44, 6, 33};
+
+        }
+        System.out.println("数组中无重复数字！");
+        return -1;
+    }
 }

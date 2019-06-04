@@ -32,10 +32,9 @@ public class ExchangeSort {
      * @param a
      */
     public static int[] quick(int[] a, int start, int end) {
-        if(start<end){
+        if(start>=end){
             return a;
         }
-
         //把数组中第start当作基准数
         int startd = a[start];
         //低位数字下标
@@ -45,25 +44,25 @@ public class ExchangeSort {
         //循环找比基本数高的位置
         while (low < hight) {
             //右边比标准数小 不用动
-            while (low < hight && a[hight] < startd) {
+            while (low < hight && a[hight] > startd) {
                 hight--;
             }
             a[low] = a[hight];
             //右边比标准数小 不用动
-            while (low < hight && a[low] > startd) {
+            while (low < hight && a[low] <=startd) {
                 low++;
             }
             a[hight] = a[low];
         }
         a[low] = startd;
         quick(a, 0, low);
-        quick(a, low, a.length-1);
+        quick(a, low+1, end);
         return a;
     }
 
     public static void main(String s[]) {
-        int[] a = new int[]{2, 4, 6, 5, 1, 67, 1223, 3, 64, 63, 4, 24, 3, 534, 53, 5};
-        System.out.println(Arrays.toString(ExchangeSort.maopao(a)));
+        int[] a = new int[]{2, 4, 6, 5, 1, 67};
+//        System.out.println(Arrays.toString(ExchangeSort.maopao(a)));
         System.out.println(Arrays.toString(ExchangeSort.quick(a,0,a.length-1)));
     }
 }

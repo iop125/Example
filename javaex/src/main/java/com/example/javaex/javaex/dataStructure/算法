@@ -38,13 +38,14 @@ T(n)
 
 排序
   交换排序  ExchangeSort
-      冒泡排序   maopao
-      快速排序   quick
+      冒泡排序   maopao    稳定   O(n2)
+      快速排序   quick    不稳定  O(nlogn) 平均时间, O(n2) 最坏情况; 对于大的、乱序串列一般认为是最快的已知排序
   插入排序  InsertSort
-      直接插入排序  directInsertion 若后面有一个比较小的数字那么排序会慢
-      希尔排序  shell
+      直接插入排序  directInsertion 若后面有一个比较小的数字那么排序会慢  稳定   O(n2)
+      希尔排序  shell                           不稳定 O(nlogn)
   选择排序  ChoiceSort
-      简单选择排序  simpleSelectionSorting
-      堆排序
-  归并排序   MergeSort
-  基数排序  JishuSort
+      简单选择排序  simpleSelectionSorting   不稳定  O(n2)
+      堆排序                                 不稳定  O(nlogn)
+  归并排序   MergeSort  稳定   O(n log n); 需要 O(n) 额外存储空间
+  基数排序  JishuSort  稳定  O(n+k); 需要 O(n+k) 额外存储空间，k为序列中Max-Min+1
+  二叉树排序  稳定   O(nlogn); 需要 O(n) 额外存储空间

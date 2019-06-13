@@ -8,4 +8,6 @@ public class Menber {
     public Menber(int i) {
         this.i = i;
     }
+    public Menber() {
+    }
 }

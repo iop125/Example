@@ -58,12 +58,14 @@ public class AVLNode {
         //创建一个新节点 值为当前节点
         AVLNode temporaryNode = new AVLNode(null, null, value);
         //
-        //将当前节点的右子树 赋值给新节点右子树
+        //将当前节点的右子树 赋值给新节点
         if (rightNode != null) {
             temporaryNode.rightNode = rightNode;
         }
         //把新节点的左子树设置为当前节点的左子树的右子树
         temporaryNode.leftNode = leftNode.rightNode;
+        //把新节点的左子树设置为当前节点的值
+        temporaryNode.value = this.value;
         //当前节点的值替换为左节点的值
         value = leftNode.value;
         //把当前节点的左子树设置成左子树的左子树

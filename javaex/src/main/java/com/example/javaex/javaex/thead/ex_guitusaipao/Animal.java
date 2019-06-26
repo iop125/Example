@@ -1,7 +1,10 @@
-package com.example.javaex.javaex.thead.guitusaipao;
+package com.example.javaex.javaex.thead.ex_guitusaipao;
 
 import com.example.javaex.javaex.demo.Menber;
 
+/**
+ * 龟兔赛跑 代码  兔子和乌龟跑起来的东西不同  具体逻辑在子类中
+ */
 public class Animal {
 
     public double length=20;//比赛的长度

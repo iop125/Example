@@ -1,4 +1,4 @@
-package com.example.javaex.javaex.thead.guitusaipao;
+package com.example.javaex.javaex.thead.ex_guitusaipao;
 
 
 import com.example.javaex.javaex.demo.Menber;

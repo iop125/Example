@@ -1,7 +1,6 @@
-package com.example.javaex.javaex.thead.guitusaipao.TaskCallable;
+package com.example.javaex.javaex.thead.TaskCallable;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.concurrent.*;
 
 public class TaskCallable implements Callable<String> {

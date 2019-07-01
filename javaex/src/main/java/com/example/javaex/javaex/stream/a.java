@@ -71,30 +71,26 @@ public class a {
         inventory.sort(c);
         Function<Integer,a> f = a::new;
         Function<Integer,a> f2= a::new;
-        Function<Integer,a> f3 = f.compose(f2);
         f.apply(100);
     }
     public static void main(String[] s) {
-//        List<a> list = new ArrayList<a>();
-//        list.add(new a(123));
-//        list.add(new a(1123));
-//        list.add(new a(12113));
-//        int i =10;
-//        List<a> lsit1 = list.stream().filter(a::isHeavyApple).map(a -> {
-//            new a(12345+i).ss(a,i);
-//            return a;
-//        }).collect(Collectors.toList());
-//        List<a> lsit2 = list.stream().filter(a -> a.getWeight() > 1110).map(a -> {
-////            System.out.println(a);
-//            return a;
-//        }).collect(Collectors.toList());
+        List<a> list = new ArrayList<a>();
+        list.add(new a(123));
+        list.add(new a(1123));
+        list.add(new a(12113));
+        int i =10;
+        List<a> lsit1 = list.stream().filter(a::isHeavyApple).map(a -> {
+            new a(12345+i).ss(a,i);
+            return a;
+        }).collect(Collectors.toList());
+        List<a> lsit2 = list.stream().filter(a -> a.getWeight() > 1110).map(a -> {
+//            System.out.println(a);
+            return a;
+        }).collect(Collectors.toList());
 
         a.test();
-        System.out.println((true || false) && true);
-        System.out.println((true || false));
-        System.out.println(true || false );
-        System.out.println(true || false && false);
-        System.out.println( true && false);
-        System.out.println(true && false || false);
+
+        long uniqueWords = 0;
+
     }
 }

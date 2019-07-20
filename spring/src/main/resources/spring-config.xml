@@ -2,11 +2,23 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
-    <!--<bean id="student" class="com.jd.test.domain.Student">-->
-        <!--<property name="age" value="14"/>-->
-        <!--<property name="sname" value="wo"/>-->
+    <bean id="student4" class="com.jd.test.domain.Student">
+        <property name="age" value="14"/>
+        <property name="sname" value="wo"/>
         <!--<property name="teacher" ref="teacher"/>-->
-    <!--</bean>-->
+    </bean>
+    <bean id="testBug" class="com.jd.test.manager.TestBugImpl">
+        <property name="s" value="14"/>
+    </bean>
+    <bean id="testBug1" class="com.jd.test.manager.TestBugImpl">
+        <property name="s" value="14"/>
+    </bean>
+    <bean id="testBug2" class="com.jd.test.manager.TestBugImpl">
+        <property name="s" value="14"/>
+    </bean>
+    <bean id="testBug3" class="com.jd.test.manager.TestBugImpl">
+        <property name="s" value="14"/>
+    </bean>
 
     <!--
     scope="singleton" Spring在启动时 被创建保存在spring框架singletonList中

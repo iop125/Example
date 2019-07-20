@@ -19,8 +19,8 @@ public class TestMain {
      */
     public void getBean(){
         ApplicationContext factory = new ClassPathXmlApplicationContext("spring-config.xml");
-        Student student = (Student) factory.getBean("student");
+        Student student = (Student) factory.getBean("testBug");
         System.out.println(student.getAge());
-        System.out.println(student.getTeacher().getTname());
+//        System.out.println(student.getTeacher().getTname());
     }
 }
